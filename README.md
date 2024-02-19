@@ -1,5 +1,5 @@
 # :zap:book-CRUD
-Asing this Flask API one can
+Using this Flask API one can
 <li>add books</li>
 <li>issue books</li>
 <li>search books based on book id, year, author</li>
