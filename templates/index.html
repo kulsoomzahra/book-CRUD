@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management</title>
+</head>
+<body>
+    <h1><centre>Book Management System(Prototype)<centre></h1>
+
+    <h2>Add Book</h2>
+    <form action="/add_book" method="post">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" required><br>
+        <label for="author">Author:</label><br>
+        <input type="text" id="author" name="author" required><br>
+        <label for="isbn">ISBN:</label><br>
+        <input type="text" id="isbn" name="isbn" required><br>
+        <label for="publication_year">Publication Year:</label><br>
+        <input type="number" id="publication_year" name="publication_year" required><br><br>
+        <button type="submit">Add Book</button>
+    </form>
+    <h2>Borrow Book</h2>
+    <form action="/borrow_book" method="post">
+        <label for="isbn_borrow">ISBN:</label><br>
+        <input type="text" id="isbn_borrow" name="isbn" required><br><br>
+        <button type="submit">Borrow Book</button>
+    </form>
+    
+    <h2>Search Books</h2>
+    <form action="/search" method="post">
+        <input type="text" name="query" placeholder="Search...">
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>Remove Book</h2>
+    <form action="/remove_book" method="post">
+        <label for="isbn_remove">ISBN:</label><br>
+        <input type="text" id="isbn_remove" name="isbn" required><br><br>
+        <button type="submit">Remove Book</button>
+    </form>
+
+    <h2>Books List</h2>
+    <ul>
+        {% for book in books %}
+            <li>{{ book.title }} by {{ book.author }} (ISBN: {{ book.isbn }}, Status: {{ book.status }}) - Published in {{ book.publication_year }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
